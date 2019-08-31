@@ -46,31 +46,31 @@ public class MainActivity extends AppCompatActivity {
 
                 if(u1.equals("in") && u2.equals("ft")){             //in -> ft
 
-                    answer.setText(Double.toString(value/12));
+                    answer.setText(Double.toString(value/12) + u2);
 
                 } else if(u1.equals("in") && u2.equals("yd")){      //in -> yd
 
-                    answer.setText(Double.toString(value/36));
+                    answer.setText(Double.toString(value/36) + u2);
 
                 } else if(u1.equals("ft") && u2.equals("in")){      //ft -> in
 
-                    answer.setText(Double.toString(value*12));
+                    answer.setText(Double.toString(value*12) + u2);
 
                 } else if(u1.equals("ft") && u2.equals("yd")){      //ft -> yd
 
-                    answer.setText(Double.toString(value/3));
+                    answer.setText(Double.toString(value/3) + u2);
 
                 } else if(u1.equals("yd") && u2.equals("in")){      //yd -> in
 
-                    answer.setText(Double.toString(value*36));
+                    answer.setText(Double.toString(value*36) + u2);
 
                 } else if(u1.equals("yd") && u2.equals("ft")){      //yd -> ft
 
-                    answer.setText(Double.toString(value*3));
+                    answer.setText(Double.toString(value*3) + u2);
 
                 } else{                                             //units equal, don't convert
 
-                    answer.setText(Double.toString(value));
+                    answer.setText(Double.toString(value) + u2);
 
                 }
             }
