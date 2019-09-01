@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         b = (Button)findViewById(R.id.button);
         unit1 = findViewById(R.id.unit1);
         unit2 = findViewById(R.id.unit2);
-        String[] items = new String[]{"in","ft","yd"};
+        String[] items = new String[]{"in","ft","yd", "cm", "m"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         unit1.setAdapter(adapter);
         unit2.setAdapter(adapter);
@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 value = Double.parseDouble(input.getText().toString());
-                //answer.setText(Double.toString(value));
                 String u1 = unit1.getSelectedItem().toString();
                 String u2 = unit2.getSelectedItem().toString();
 
@@ -52,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
 
                     answer.setText(Double.toString(value/36) + u2);
 
+                } else if(u1.equals("in") && u2.equals("cm")){      //in -> cm
+
+                    answer.setText(Double.toString(value*2.54) + u2);
+
+                } else if(u1.equals("in") && u2.equals("m")){       //in -> m
+
+                    answer.setText(Double.toString(value/39.37) + u2);
+
                 } else if(u1.equals("ft") && u2.equals("in")){      //ft -> in
 
                     answer.setText(Double.toString(value*12) + u2);
@@ -59,6 +66,14 @@ public class MainActivity extends AppCompatActivity {
                 } else if(u1.equals("ft") && u2.equals("yd")){      //ft -> yd
 
                     answer.setText(Double.toString(value/3) + u2);
+
+                } else if(u1.equals("ft") && u2.equals("cm")){      //ft -> cm
+
+                    answer.setText(Double.toString(value*30.48) + u2);
+
+                } else if(u1.equals("ft") && u2.equals("m")){       //ft -> m
+
+                    answer.setText(Double.toString(value/3.2808) + u2);
 
                 } else if(u1.equals("yd") && u2.equals("in")){      //yd -> in
 
@@ -68,6 +83,46 @@ public class MainActivity extends AppCompatActivity {
 
                     answer.setText(Double.toString(value*3) + u2);
 
+                } else if(u1.equals("yd") && u2.equals("cm")){        //yd -> cm
+
+                    answer.setText(Double.toString(value*91.44) + u2);
+
+                } else if(u1.equals("yd") && u2.equals("m")){        //yd -> m
+
+                    answer.setText(Double.toString(value/1.0936) + u2);
+
+                } else if(u1.equals("cm") && u2.equals("in")){        //cm -> in
+
+                    answer.setText(Double.toString(value/2.54) + u2);
+
+                } else if(u1.equals("cm") && u2.equals("ft")){        //cm -> ft
+
+                    answer.setText(Double.toString(value/30.48) + u2);
+
+                } else if(u1.equals("cm") && u2.equals("yd")){        //cm -> yd
+
+                    answer.setText(Double.toString(value/91.44) + u2);
+
+                } else if(u1.equals("cm") && u2.equals("m")){        //cm -> m
+
+                    answer.setText(Double.toString(value/100) + u2);
+
+                } else if(u1.equals("m") && u2.equals("in")){        //m -> in
+
+                    answer.setText(Double.toString(value*39.37) + u2);
+
+                } else if(u1.equals("m") && u2.equals("ft")){        //m -> ft
+
+                    answer.setText(Double.toString(value*3.2808) + u2);
+
+                } else if(u1.equals("m") && u2.equals("yd")){        //m -> yd
+
+                    answer.setText(Double.toString(value*1.0936) + u2);
+
+                } else if(u1.equals("m") && u2.equals("cm")){        //m -> cm
+
+                    answer.setText(Double.toString(value*100) + u2);
+
                 } else{                                             //units equal, don't convert
 
                     answer.setText(Double.toString(value) + u2);
@@ -75,18 +130,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        /*unit1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                unit1.getSelectedItem().toString()
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });*/
-
     }
 }
