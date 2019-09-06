@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e){
                     return;
                 }
+                count = 2;
                 String u1 = unit1.getSelectedItem().toString();
                 String u2 = unit2.getSelectedItem().toString();
 
