@@ -40,7 +40,8 @@
             android:gravity="center"
             android:includeFontPadding="false"
             android:text=""
-            android:textSize="60dp" />
+            android:textSize="60dp"
+            android:textColor="@android:color/black" />
     </RelativeLayout>
 
 
